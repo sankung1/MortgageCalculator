@@ -42,7 +42,7 @@ namespace MortgageCalculator.Controllers
         [AutoValidateAntiforgeryToken]
         public IActionResult App(Loan loan)
         {
-
+            // calculate the loan
 
             return View();
         }
