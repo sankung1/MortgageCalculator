@@ -13,14 +13,14 @@
                 </div>
                 <div class="col-12 form-group">
                     <label asp-for="Term">Term:</label>
-                    <input type="number" class="form-control" id="lterm" min="1"  value=@Model.Term asp-for="Term" />
+                    <input type="number" class="form-control" id="lterm" min="1" value=@Model.Term asp-for="Term" />
                 </div>
                 <div class="col-12 form-group">
                     <label asp-for="Rate">Rate:</label>
-                    <input type="number" class="form-control" id="lrate" min="1"  value=@Model.Rate asp-for="Rate" />
+                    <input type="number" class="form-control" id="lrate" min="1" value=@Model.Rate asp-for="Rate" />
                 </div>
             </div>
-            <button type="submit" class="btn btn-dark mt-2">Calculate</button> 
+            <button type="submit" class="btn btn-dark mt-2">Calculate</button>
         </form>
         <div class="col">
             <div id="paymentTitle">
@@ -51,8 +51,37 @@
             </div>
         </div>
     </div>
+    @if (Model.Payments.Count > 0)
+    {
+        <div class="row">
+            <div class="col">
+                <table id="scheduleTable" class="table table-striped table-hover">
+                    <thead class="text-white">
+                        <tr>
+                            <th>Month</th>
+                            <th>C</th>
+                            <th>Principal</th>
+                            <th>Interest</th>
+                            <th>Total Interest</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model.Payments) 
+                        {
+                        <tr>
+                            <td>@item.Month</td>
+                            <td>@item.Payment</td>
+                            <td>@item.MonthlyPrinciple</td>
+                            <td>@item.MonthlyInterest</td>
+                            <td>@item.TotalInterest</td>
+                            <td>@item.Balance</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
 
-    <div class="row">
-        <div class="col"></div>
-    </div>
 </div>
