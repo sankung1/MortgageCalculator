@@ -23,6 +23,7 @@ namespace MortgageCalculator.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult App()
         {
             Loan loan = new();
@@ -36,6 +37,16 @@ namespace MortgageCalculator.Controllers
 
             return View(loan);
         }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult App(Loan loan)
+        {
+
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
