@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using MortgageCalculator.Helpers;
 
 namespace MortgageCalculator.Controllers
 {
@@ -43,8 +44,10 @@ namespace MortgageCalculator.Controllers
         public IActionResult App(Loan loan)
         {
             // calculate the loan
+            var loanHelper = new LoanHelper();
 
-            return View();
+            Loan newLoan = loanHelper.GetPayments(loan);
+            return View(newLoan);
         }
 
         public IActionResult Privacy()

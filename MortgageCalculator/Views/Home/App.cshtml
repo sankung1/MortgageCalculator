@@ -71,11 +71,11 @@
                         {
                         <tr>
                             <td>@item.Month</td>
-                            <td>@item.Payment</td>
-                            <td>@item.MonthlyPrinciple</td>
-                            <td>@item.MonthlyInterest</td>
-                            <td>@item.TotalInterest</td>
-                            <td>@item.Balance</td>
+                            <td>@item.Payment.ToString("C")</td>
+                            <td>@item.MonthlyPrinciple.ToString("C")</td>
+                            <td>@item.MonthlyInterest.ToString("C")</td>
+                            <td>@item.TotalInterest.ToString("C")</td>
+                            <td>@item.Balance.ToString("C")</td>
                         </tr>
                         }
                     </tbody>
